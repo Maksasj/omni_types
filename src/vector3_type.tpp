@@ -113,7 +113,7 @@ namespace omni::types {
     Vec3<_T>& Vec3<_T>::operator/=(const _T& other) { this->x /= other; this->y /= other; this->z /= other; return *this; }
 
     template<typename _T>
-    Vec3<_T>::operator Vec2<_T>() const { return Ve2c<_T>{this->x, this->y}; }
+    Vec3<_T>::operator Vec2<_T>() const { return Vec2<_T>{this->x, this->y}; }
 
     template<typename _T>
     bool Vec3<_T>::operator==(const Vec3<_T> other) { return this->x == other.x && this->y == other.y && this->z == other.z; }
