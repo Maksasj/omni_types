@@ -51,27 +51,9 @@ namespace omni::types {
         bool operator==(const Vec2<_T> other);
         bool operator!=(const Vec2<_T> other);
 
-        friend class std::ostream;
-
-        /**
-         * @brief Method used to get string representation of object instance
-         * 
-         * @return std::string string representation 
-        */
         std::string to_string() const;
-        
-        /**
-         * @brief Converts all values of the vector to their absolute values
-         * 
-         * @return Vec2<_T>& reference to vector instance
-        */
-        Vec2<_T>& abs();
 
-        /**
-         * @brief Calculates length of the vector
-         * 
-         * @return _T length of the vector
-        */
+        Vec2<_T>& abs();
         _T length() const;
     };
 }
@@ -137,6 +119,11 @@ namespace omni::types {
         return os;
     } 
 
+    /**
+     * @brief Method used to get string representation of object instance
+     * 
+     * @return std::string string representation 
+    */
     template<typename _T>
     std::string Vec2<_T>::to_string() const {
         std::stringstream ss;
@@ -144,6 +131,11 @@ namespace omni::types {
         return ss.str();
     }
 
+    /**
+     * @brief Converts all values of the vector to their absolute values
+     * 
+     * @return Vec2<_T>& reference to vector instance
+    */
     template<typename _T>
     Vec2<_T>& Vec2<_T>::Vec2::abs() {
         if(this->x < 0) this->x = -this->x;
@@ -151,7 +143,11 @@ namespace omni::types {
         return *this;
     }
 
-
+    /**
+     * @brief Calculates length of the vector
+     * 
+     * @return _T length of the vector
+    */
     template<typename _T>
     _T Vec2<_T>::length() const {
         return sqrtf(this->x * this->x + this->y * this->y);
