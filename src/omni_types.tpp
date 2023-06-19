@@ -1,6 +1,6 @@
 /**
  * @file 
- * types.tpp
+ * omni_types.tpp
  * 
  * @author 
  * Maksim Jaroslavcevas radioboos@gmail.com
@@ -9,127 +9,17 @@
  * see LICENSE.md file
 */
 
-#ifndef _OMMNISCIA_TYPES_H_
-#define _OMMNISCIA_TYPES_H_
+#ifndef _OMNI_TYPES_H_
+#define _OMNI_TYPES_H_
 
 #include <cstdint>
 #include <sstream>
 #include <iostream>
 
+#include "primitive_types.h"
+#include "vector2_type.tpp"
+
 namespace omni::types {
-    using u8 = unsigned char;
-    using u16 = unsigned short;
-    using u32 = unsigned int;
-    using u64 = unsigned long long;
-
-    using i8 = signed char;
-    using i16 = signed short;
-    using i32 = signed int;
-    using i64 = signed long long;
-
-    using f32 = float;
-    using f64 = double;
-
-    /**
-     * @brief Type that used as 2d geometrical vector
-     * 
-     * @tparam _T type of the vector
-    */
-    template<typename _T>
-    struct Vec2 {
-        /**
-         * @brief Raw vector values
-        */
-        _T x;
-        _T y;
-
-        /**
-         * @brief Some overoaded operators
-        */
-        Vec2 operator+(const Vec2& vec) { return Vec2{x + vec.x, y + vec.y }; }
-        Vec2 operator-(const Vec2& vec) { return Vec2{x - vec.x, y - vec.y }; }
-
-        Vec2 operator*(const _T& value) const { return Vec2{x * value, y * value }; }
-        Vec2 operator/(const _T& value) const {
-            if(value == 0) throw std::overflow_error("Divide by zero exception");
-
-            return Vec2{x / value, y / value }; 
-        }
-
-        /* Vector x= Vector */
-        Vec2<_T>& operator+=(const Vec2<_T>& other) { this->x += other.x; this->y += other.y; return *this; }
-        Vec2<_T>& operator-=(const Vec2<_T>& other) { this->x -= other.x; this->y -= other.y; return *this; }
-        Vec2<_T>& operator*=(const Vec2<_T>& other) { this->x *= other.x; this->y *= other.y; return *this; }
-        Vec2<_T>& operator/=(const Vec2<_T>& other) { this->x /= other.x; this->y /= other.y; return *this; }
-
-        /* Vector x= arbirary values */
-        Vec2<_T>& operator+=(const _T& other) { this->x += other; this->y += other; return *this; }
-        Vec2<_T>& operator-=(const _T& other) { this->x -= other; this->y -= other; return *this; }
-        Vec2<_T>& operator*=(const _T& other) { this->x *= other; this->y *= other; return *this; }
-        Vec2<_T>& operator/=(const _T& other) { this->x /= other; this->y /= other; return *this; }
-
-        bool operator==(const Vec2<_T> other) { return this->x == other.x && this->y == other.y; }
-        bool operator!=(const Vec2<_T> other) { return !this == other; }
-
-        /**
-         * @brief Puts string representation of the object to the out stream
-         * 
-         * @param os - reference to the out stream
-         * @param vec - reference to the object instance
-         * 
-         * @return std::ostream& reference to the stream instance 
-        */
-        friend std::ostream& operator<<(std::ostream& os, const Vec2<_T>& vec) {
-            os << vec.x << " " << vec.y;
-            return os;
-        }
-
-        /**
-         * @brief Constructs object from it string representation
-         * 
-         * @param os - reference to the in stream
-         * @param vec - reference to the object instance
-         * 
-         * @return std::istream& reference to the stream instance 
-        */
-        friend std::istream& operator>>(std::istream& os, const Vec2<_T>& vec) {
-            os >> vec.x >> vec.y;
-
-            return os;
-        } 
-
-        /**
-         * @brief Method used to get string representation of object instance
-         * 
-         * @return std::string string representation 
-        */
-        std::string to_string() const {
-            std::stringstream ss;
-            ss << x << ' ' << y;
-            return ss.str();
-        }
-        
-        /**
-         * @brief Converts all values of the vector to their absolute values
-         * 
-         * @return Vec2<_T>& reference to vector instance
-        */
-        Vec2<_T>& abs() {
-            if(this->x < 0) this->x = -this->x;
-            if(this->y < 0) this->y = -this->y;
-            return *this;
-        }
-
-        /**
-         * @brief Calculates length of the vector
-         * 
-         * @return f32 length of the vector
-        */
-        f32 length() const {
-            return sqrtf(this->x * this->x + this->y * this->y);
-        }
-    };
-
     /**
      * @brief Type that used as 3d geometrical vector
      * 
