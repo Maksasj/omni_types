@@ -30,6 +30,13 @@ namespace omni::types {
         _T y;
         _T z;
 
+        Vec3() {}
+        Vec3(const _T& _x, const _T& _y, const _T& _z) : x(_x), y(_y), z(_z) {}
+
+        static Vec3<_T> splat(const _T& value) {
+            return Vec3(value, value, value);
+        }
+
         /** @brief Some overoaded operators */
         Vec3 operator+(const Vec3& vec) const;
         Vec3 operator-(const Vec3& vec) const;
