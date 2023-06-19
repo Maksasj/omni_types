@@ -29,6 +29,13 @@ namespace omni::types {
         _T x;
         _T y;
 
+        Vec2() {}
+        Vec2(const _T& _x, const _T& _y) : x(_x), y(_y) {}
+
+        static Vec2<_T> splat(const _T& value) {
+            return Vec2(value, value);
+        }
+
         /** @brief Some overoaded operators */
         Vec2 operator+(const Vec2& vec);
         Vec2 operator-(const Vec2& vec);
