@@ -12,20 +12,31 @@
 #ifndef _OMNI_TYPES_VECTOR_3_TYPE_TPP_
 #define _OMNI_TYPES_VECTOR_3_TYPE_TPP_
 
-#include "../3dparty/omni_reflector/src/omni_reflector.h"
+#ifdef OMNI_TYPES_ENABLE_REFLECTIONS 
+    #include "../3dparty/omni_reflector/src/omni_reflector.h"
+#endif
+
 #include "vector2_type.tpp"
 
 #include <ostream>
 #include <cmath>
 
 namespace omni::types {
+    #ifdef OMNI_TYPES_ENABLE_REFLECTIONS 
+        using namespace omni::reflector;
+    #endif
+
     /**
      * @brief Type that used as 3d geometrical vector
      * 
      * @tparam _T type of the vector
     */
     template<typename _T>
-    struct Vec3 {
+    struct Vec3 
+        #ifdef OMNI_TYPES_ENABLE_REFLECTIONS 
+            : Reflected<Vec3<_T>>
+        #endif
+    {
         /** @brief Raw vector values */
         _T x;
         _T y;
@@ -37,6 +48,14 @@ namespace omni::types {
         static Vec3<_T> splat(const _T& value) {
             return Vec3(value, value, value);
         }
+
+        #ifdef OMNI_TYPES_ENABLE_REFLECTIONS
+            const constexpr static auto meta = std::make_tuple(
+                field_registration(&Vec3<_T>::x, "x"),
+                field_registration(&Vec3<_T>::y, "y"),
+                field_registration(&Vec3<_T>::z, "z")
+            );
+        #endif
 
         /** @brief Some overoaded operators */
         Vec3 operator+(const Vec3& vec) const;

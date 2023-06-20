@@ -12,20 +12,31 @@
 #ifndef _OMNI_TYPES_VECTOR_2_TYPE_TPP_
 #define _OMNI_TYPES_VECTOR_2_TYPE_TPP_
 
-#include "../3dparty/omni_reflector/src/omni_reflector.h"
+#ifdef OMNI_TYPES_ENABLE_REFLECTIONS 
+    #include "../3dparty/omni_reflector/src/omni_reflector.h"
+#endif
+
 #include "primitive_types.h"
 
 #include <ostream>
 #include <cmath>
 
 namespace omni::types {
+    #ifdef OMNI_TYPES_ENABLE_REFLECTIONS 
+        using namespace omni::reflector;
+    #endif
+
     /**
      * @brief Type that used as 2d geometrical vector
      * 
      * @tparam _T type of the vector
     */
     template<typename _T>
-    struct Vec2 {
+    struct Vec2 
+        #ifdef OMNI_TYPES_ENABLE_REFLECTIONS 
+            : Reflected<Vec2<_T>>
+        #endif
+    {
         /** @brief Raw vector values */
         _T x;
         _T y;
@@ -36,6 +47,13 @@ namespace omni::types {
         static Vec2<_T> splat(const _T& value) {
             return Vec2(value, value);
         }
+
+        #ifdef OMNI_TYPES_ENABLE_REFLECTIONS
+            const constexpr static auto meta = std::make_tuple(
+                field_registration(&Vec2<_T>::x, "x"),
+                field_registration(&Vec2<_T>::y, "y")
+            );
+        #endif
 
         /** @brief Some overoaded operators */
         Vec2 operator+(const Vec2& vec);
