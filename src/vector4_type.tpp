@@ -12,6 +12,7 @@
 #ifndef _OMNI_TYPES_VECTOR_4_TYPE_TPP_
 #define _OMNI_TYPES_VECTOR_4_TYPE_TPP_
 
+#include "omni_reflector.h"
 #include "vector3_type.tpp"
 
 #include <ostream>
