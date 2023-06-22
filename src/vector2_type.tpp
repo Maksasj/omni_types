@@ -50,8 +50,8 @@ namespace omni::types {
 
         #ifdef OMNI_TYPES_ENABLE_REFLECTIONS
             const constexpr static auto meta = std::make_tuple(
-                field_registration(&Vec2<_T>::x, "x"),
-                field_registration(&Vec2<_T>::y, "y")
+                FieldFriendlyScope::field_registration(&Vec2<_T>::x, "x"),
+                FieldFriendlyScope::field_registration(&Vec2<_T>::y, "y")
             );
         #endif
 
