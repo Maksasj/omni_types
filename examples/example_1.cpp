@@ -6,9 +6,9 @@
 int main() {
     using namespace omni::types;
 
-    Vec2f vec = Vec2f::splat(0.0f);
-
-    std::cout << vec << "\n";
+    std::cout << omni::reflector::Reflection<Vec2f>::clearTypeName << "\n";
+    std::cout << omni::reflector::Reflection<Vec3f>::clearTypeName << "\n";
+    std::cout << omni::reflector::Reflection<Vec4f>::clearTypeName << "\n";
 
     return 0;
 }
