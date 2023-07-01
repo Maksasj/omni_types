@@ -13,6 +13,7 @@
 #define _OMNI_TYPES_VECTOR_3_TYPE_TPP_
 
 #include "vector2_type.tpp"
+#include "interpolation.tpp"
 
 #include <ostream>
 #include <cmath>
@@ -66,6 +67,9 @@ namespace omni::types {
         bool operator!=(const Vec3<_T> other) const;
 
         std::string to_string() const;
+
+        Vec3<_T>& clamp(const _T& minValue, const _T& maxValue);
+        Vec3<_T>& clamp(const Vec3<_T>& minValue, const Vec3<_T>& maxValue);
 
         Vec3<_T>& abs();
         _T length() const;
@@ -131,6 +135,24 @@ namespace omni::types {
     
     template<typename _T>
     bool Vec3<_T>::operator!=(const Vec3<_T> other) const { return !this == other; }
+
+    template<typename _T>
+    Vec3<_T>& clamp(const _T& minValue, const _T& maxValue) {
+        this->x = clamp(this->x, minValue, maxValue);
+        this->y = clamp(this->y, minValue, maxValue);
+        this->z = clamp(this->z, minValue, maxValue);
+
+        return *this;
+    }
+    
+    template<typename _T>
+    Vec3<_T>& clamp(const Vec3<_T>& minValue, const Vec3<_T>& maxValue) {
+        this->x = clamp(this->x, minValue.x, maxValue.x);
+        this->y = clamp(this->y, minValue.y, maxValue.y);
+        this->z = clamp(this->z, minValue.z, maxValue.z);
+
+        return *this;
+    }
 
     /**
      * @brief Puts string representation of the object to the out stream

@@ -13,6 +13,7 @@
 #define _OMNI_TYPES_VECTOR_2_TYPE_TPP_
 
 #include "primitive_types.h"
+#include "interpolation.tpp"
 
 #include <ostream>
 #include <cmath>
@@ -64,6 +65,9 @@ namespace omni::types {
 
         std::string to_string() const;
 
+        Vec2<_T>& clamp(const _T& minValue, const _T& maxValue);
+        Vec2<_T>& clamp(const Vec2<_T>& minValue, const Vec2<_T>& maxValue);
+        
         Vec2<_T>& abs();
         _T length() const;
     };
@@ -125,6 +129,22 @@ namespace omni::types {
     
     template<typename _T>
     bool Vec2<_T>::operator!=(const Vec2<_T> other) const { return !this == other; }
+
+    template<typename _T>
+    Vec2<_T>& clamp(const _T& minValue, const _T& maxValue) {
+        this->x = clamp(this->x, minValue, maxValue);
+        this->y = clamp(this->y, minValue, maxValue);
+
+        return *this;
+    }
+    
+    template<typename _T>
+    Vec2<_T>& clamp(const Vec2<_T>& minValue, const Vec2<_T>& maxValue) {
+        this->x = clamp(this->x, minValue.x, maxValue.x);
+        this->y = clamp(this->y, minValue.y, maxValue.y);
+
+        return *this;
+    }
 
     template<typename _T>
     std::ostream& operator<<(std::ostream& os, const Vec2<_T>& vec) {

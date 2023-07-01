@@ -16,6 +16,14 @@
 
 namespace omni::types {
     template<typename T>
+    inline T clamp(const T& value, const T& minValue, const T& maxValue) {
+        if(value < minValue) return minValue;
+        if(value > maxValue) return maxValue;
+        
+        return value;
+    }
+
+    template<typename T>
     inline T lerp(const T& start, const T& finish, const f32& t) {
         return (finish * t) + start * (1.0f - t);
     }
