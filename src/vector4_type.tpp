@@ -134,7 +134,7 @@ namespace omni::types {
     bool Vec4<_T>::operator==(const Vec4<_T> other) const { return this->x == other.x && this->y == other.y && this->z == other.z && this->w == other.w; }
     
     template<typename _T>
-    bool Vec4<_T>::operator!=(const Vec4<_T> other) const { return !this == other; }
+    bool Vec4<_T>::operator!=(const Vec4<_T> other) const { return !(this == other); }
 
     template<typename _T>
     Vec4<_T>& clamp(const _T& minValue, const _T& maxValue) {
