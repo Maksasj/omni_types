@@ -6,9 +6,10 @@
 int main() {
     using namespace omni::types;
 
-    std::cout << omni::reflector::Reflection<Vec2f>::clearTypeName << "\n";
-    std::cout << omni::reflector::Reflection<Vec3f>::clearTypeName << "\n";
-    std::cout << omni::reflector::Reflection<Vec4f>::clearTypeName << "\n";
+    Vec2f a = Vec2f::splat(0.0f);
+    Vec2f b = Vec2f::splat(1.0f);
+
+    std::cout << (a != b) << "\n";
 
     return 0;
 }

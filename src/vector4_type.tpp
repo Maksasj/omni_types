@@ -62,8 +62,8 @@ namespace omni::types {
         Vec4<_T>& operator*=(const _T& other);
         Vec4<_T>& operator/=(const _T& other);
 
-        bool operator==(const Vec4<_T> other) const;
-        bool operator!=(const Vec4<_T> other) const;
+        bool operator==(const Vec4<_T>& other) const;
+        bool operator!=(const Vec4<_T>& other) const;
 
         std::string to_string() const;
 
@@ -131,10 +131,10 @@ namespace omni::types {
 
 
     template<typename _T>
-    bool Vec4<_T>::operator==(const Vec4<_T> other) const { return this->x == other.x && this->y == other.y && this->z == other.z && this->w == other.w; }
+    bool Vec4<_T>::operator==(const Vec4<_T>& other) const { return this->x == other.x && this->y == other.y && this->z == other.z && this->w == other.w; }
     
     template<typename _T>
-    bool Vec4<_T>::operator!=(const Vec4<_T> other) const { return !(this == other); }
+    bool Vec4<_T>::operator!=(const Vec4<_T>& other) const { return !(*this == other); }
 
     template<typename _T>
     Vec4<_T>& clamp(const _T& minValue, const _T& maxValue) {
