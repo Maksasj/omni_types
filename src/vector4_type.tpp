@@ -39,13 +39,15 @@ namespace omni::types {
         }
 
         /** @brief Some overoaded operators */
-        Vec4 operator+(const Vec4& vec);
-        Vec4 operator-(const Vec4& vec);
-        Vec4 operator*(const Vec4& vec);
-        Vec4 operator/(const Vec4& vec);
+        Vec4 operator+(const Vec4& vec) const;
+        Vec4 operator-(const Vec4& vec) const;
+        Vec4 operator*(const Vec4& vec) const;
+        Vec4 operator/(const Vec4& vec) const;
 
-        Vec4 operator*(const _T& value);
-        Vec4 operator/(const _T& value);
+        Vec4 operator+(const _T& value) const;
+        Vec4 operator-(const _T& value) const;
+        Vec4 operator*(const _T& value) const;
+        Vec4 operator/(const _T& value) const;
 
         /* Vector x= Vector */
         Vec4<_T>& operator+=(const Vec4<_T>& other);
@@ -59,8 +61,8 @@ namespace omni::types {
         Vec4<_T>& operator*=(const _T& other);
         Vec4<_T>& operator/=(const _T& other);
 
-        bool operator==(const Vec4<_T> other);
-        bool operator!=(const Vec4<_T> other);
+        bool operator==(const Vec4<_T> other) const;
+        bool operator!=(const Vec4<_T> other) const;
 
         std::string to_string() const;
 
@@ -74,26 +76,28 @@ namespace omni::types {
      * @brief Some overoaded operators
     */
     template<typename _T>
-    Vec4<_T> Vec4<_T>::operator+(const Vec4& vec) { return Vec4{this->x + vec.x, this->y + vec.y, this->z + vec.z, w + vec.w}; }
+    Vec4<_T> Vec4<_T>::operator+(const Vec4& vec) const { return Vec4(this->x + vec.x, this->y + vec.y, this->z + vec.z, w + vec.w); }
     
     template<typename _T>
-    Vec4<_T> Vec4<_T>::operator-(const Vec4& vec) { return Vec4{this->x - vec.x, this->y - vec.y, this->z - vec.z, w - vec.w}; }
+    Vec4<_T> Vec4<_T>::operator-(const Vec4& vec) const { return Vec4(this->x - vec.x, this->y - vec.y, this->z - vec.z, w - vec.w); }
     
     template<typename _T>
-    Vec4<_T> Vec4<_T>::operator*(const Vec4& vec) { return Vec4{this->x * vec.x, this->y * vec.y, this->z * vec.z, w * vec.w}; }
+    Vec4<_T> Vec4<_T>::operator*(const Vec4& vec) const { return Vec4(this->x * vec.x, this->y * vec.y, this->z * vec.z, w * vec.w); }
     
     template<typename _T>
-    Vec4<_T> Vec4<_T>::operator/(const Vec4& vec) { return Vec4{this->x / vec.x, this->y / vec.y, this->z / vec.z, w / vec.w}; }
+    Vec4<_T> Vec4<_T>::operator/(const Vec4& vec) const { return Vec4(this->x / vec.x, this->y / vec.y, this->z / vec.z, w / vec.w); }
 
     template<typename _T>
-    Vec4<_T> Vec4<_T>::operator*(const _T& value) { return Vec4{this->x * value, this->y * value, this->z * value, this->w * value }; }
+    Vec4<_T> Vec4<_T>::operator+(const _T& value) const { return Vec4(this->x + value, this->y + value, this->z + value, this->w + value); }
     
     template<typename _T>
-    Vec4<_T> Vec4<_T>::operator/(const _T& value) { 
-        if(value == 0) throw std::overflow_error("Divide by zero exception");
+    Vec4<_T> Vec4<_T>::operator-(const _T& value) const { return Vec4( this->x - value, this->y - value, this->z - value, this->w - value); }
 
-        return Vec4{ this->x / value, this->y / value, this->z / value, this->w / value }; 
-    }
+    template<typename _T>
+    Vec4<_T> Vec4<_T>::operator*(const _T& value) const { return Vec4(this->x * value, this->y * value, this->z * value, this->w * value); }
+    
+    template<typename _T>
+    Vec4<_T> Vec4<_T>::operator/(const _T& value) const { return Vec4( this->x / value, this->y / value, this->z / value, this->w / value); }
 
     /* Vector x= Vector */
     template<typename _T>
@@ -123,10 +127,10 @@ namespace omni::types {
 
 
     template<typename _T>
-    bool Vec4<_T>::operator==(const Vec4<_T> other) { return this->x == other.x && this->y == other.y && this->z == other.z && this->w == other.w; }
+    bool Vec4<_T>::operator==(const Vec4<_T> other) const { return this->x == other.x && this->y == other.y && this->z == other.z && this->w == other.w; }
     
     template<typename _T>
-    bool Vec4<_T>::operator!=(const Vec4<_T> other) { return !this == other; }
+    bool Vec4<_T>::operator!=(const Vec4<_T> other) const { return !this == other; }
 
     /**
      * @brief Puts string representation of the object to the out stream

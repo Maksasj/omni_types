@@ -43,6 +43,8 @@ namespace omni::types {
         Vec3 operator*(const Vec3& vec) const;
         Vec3 operator/(const Vec3& vec) const;
 
+        Vec3 operator+(const _T& value) const;
+        Vec3 operator-(const _T& value) const;
         Vec3 operator*(const _T& value) const;
         Vec3 operator/(const _T& value) const;
 
@@ -60,8 +62,8 @@ namespace omni::types {
 
         operator Vec2<_T>() const;
 
-        bool operator==(const Vec3<_T> other);
-        bool operator!=(const Vec3<_T> other);
+        bool operator==(const Vec3<_T> other) const;
+        bool operator!=(const Vec3<_T> other) const;
 
         std::string to_string() const;
 
@@ -72,26 +74,28 @@ namespace omni::types {
 
 namespace omni::types {
     template<typename _T>
-    Vec3<_T> Vec3<_T>::operator+(const Vec3& vec) const { return Vec3{this->x + vec.x, this->y + vec.y, z + vec.z}; }
+    Vec3<_T> Vec3<_T>::operator+(const Vec3& vec) const { return Vec3(this->x + vec.x, this->y + vec.y, z + vec.z); }
     
     template<typename _T>
-    Vec3<_T> Vec3<_T>::operator-(const Vec3& vec) const { return Vec3{this->x - vec.x, this->y - vec.y, z - vec.z}; }
+    Vec3<_T> Vec3<_T>::operator-(const Vec3& vec) const { return Vec3(this->x - vec.x, this->y - vec.y, z - vec.z); }
     
     template<typename _T>
-    Vec3<_T> Vec3<_T>::operator*(const Vec3& vec) const { return Vec3{this->x * vec.x, this->y * vec.y, z * vec.z}; }
+    Vec3<_T> Vec3<_T>::operator*(const Vec3& vec) const { return Vec3(this->x * vec.x, this->y * vec.y, z * vec.z); }
     
     template<typename _T>
-    Vec3<_T> Vec3<_T>::operator/(const Vec3& vec) const { return Vec3{this->x / vec.x, this->y / vec.y, z / vec.z}; }
+    Vec3<_T> Vec3<_T>::operator/(const Vec3& vec) const { return Vec3(this->x / vec.x, this->y / vec.y, z / vec.z); }
 
     template<typename _T>
-    Vec3<_T> Vec3<_T>::operator*(const _T& value) const { return Vec3{this->x * value, this->y * value, this->z * value }; }
+    Vec3<_T> Vec3<_T>::operator+(const _T& value) const { return Vec3(this->x + value, this->y + value, this->z + value); }
     
     template<typename _T>
-    Vec3<_T> Vec3<_T>::operator/(const _T& value) const { 
-        if(value == 0) throw std::overflow_error("Divide by zero exception");
+    Vec3<_T> Vec3<_T>::operator-(const _T& value) const { return Vec3(this->x - value, this->y - value, this->z - value); }
 
-        return Vec3{this->x / value, this->y / value, this->z / value }; 
-    }
+    template<typename _T>
+    Vec3<_T> Vec3<_T>::operator*(const _T& value) const { return Vec3(this->x * value, this->y * value, this->z * value); }
+    
+    template<typename _T>
+    Vec3<_T> Vec3<_T>::operator/(const _T& value) const { return Vec3(this->x / value, this->y / value, this->z / value); }
 
     /* Vector x= Vector */
     template<typename _T>
@@ -123,10 +127,10 @@ namespace omni::types {
     Vec3<_T>::operator Vec2<_T>() const { return Vec2<_T>{this->x, this->y}; }
 
     template<typename _T>
-    bool Vec3<_T>::operator==(const Vec3<_T> other) { return this->x == other.x && this->y == other.y && this->z == other.z; }
+    bool Vec3<_T>::operator==(const Vec3<_T> other) const { return this->x == other.x && this->y == other.y && this->z == other.z; }
     
     template<typename _T>
-    bool Vec3<_T>::operator!=(const Vec3<_T> other) { return !this == other; }
+    bool Vec3<_T>::operator!=(const Vec3<_T> other) const { return !this == other; }
 
     /**
      * @brief Puts string representation of the object to the out stream
