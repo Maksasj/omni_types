@@ -24,6 +24,8 @@
 
 #include "matrix.tpp"
 
+#include "uuid.tpp"
+
 #include "vector_types.h"
 
 #include "interpolation.tpp"
