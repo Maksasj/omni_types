@@ -137,19 +137,19 @@ namespace omni::types {
     bool Vec3<_T>::operator!=(const Vec3<_T>& other) const { return !(*this == other); }
 
     template<typename _T>
-    Vec3<_T>& clamp(const _T& minValue, const _T& maxValue) {
-        this->x = clamp(this->x, minValue, maxValue);
-        this->y = clamp(this->y, minValue, maxValue);
-        this->z = clamp(this->z, minValue, maxValue);
+    Vec3<_T>& Vec3<_T>::clamp(const _T& minValue, const _T& maxValue) {
+        this->x = omni::types::clamp(this->x, minValue, maxValue);
+        this->y = omni::types::clamp(this->y, minValue, maxValue);
+        this->z = omni::types::clamp(this->z, minValue, maxValue);
 
         return *this;
     }
     
     template<typename _T>
-    Vec3<_T>& clamp(const Vec3<_T>& minValue, const Vec3<_T>& maxValue) {
-        this->x = clamp(this->x, minValue.x, maxValue.x);
-        this->y = clamp(this->y, minValue.y, maxValue.y);
-        this->z = clamp(this->z, minValue.z, maxValue.z);
+    Vec3<_T>& Vec3<_T>::clamp(const Vec3<_T>& minValue, const Vec3<_T>& maxValue) {
+        this->x = omni::types::clamp(this->x, minValue.x, maxValue.x);
+        this->y = omni::types::clamp(this->y, minValue.y, maxValue.y);
+        this->z = omni::types::clamp(this->z, minValue.z, maxValue.z);
 
         return *this;
     }

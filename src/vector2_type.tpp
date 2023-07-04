@@ -131,17 +131,17 @@ namespace omni::types {
     bool Vec2<_T>::operator!=(const Vec2<_T>& other) const { return !(*this == other); }
 
     template<typename _T>
-    Vec2<_T>& clamp(const _T& minValue, const _T& maxValue) {
-        this->x = clamp(this->x, minValue, maxValue);
-        this->y = clamp(this->y, minValue, maxValue);
+    Vec2<_T>& Vec2<_T>::clamp(const _T& minValue, const _T& maxValue) {
+        this->x = omni::types::clamp(this->x, minValue, maxValue);
+        this->y = omni::types::clamp(this->y, minValue, maxValue);
 
         return *this;
     }
     
     template<typename _T>
-    Vec2<_T>& clamp(const Vec2<_T>& minValue, const Vec2<_T>& maxValue) {
-        this->x = clamp(this->x, minValue.x, maxValue.x);
-        this->y = clamp(this->y, minValue.y, maxValue.y);
+    Vec2<_T>& Vec2<_T>::clamp(const Vec2<_T>& minValue, const Vec2<_T>& maxValue) {
+        this->x = omni::types::clamp(this->x, minValue.x, maxValue.x);
+        this->y = omni::types::clamp(this->y, minValue.y, maxValue.y);
 
         return *this;
     }

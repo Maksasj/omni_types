@@ -67,8 +67,8 @@ namespace omni::types {
 
         std::string to_string() const;
 
-        Vec3<_T>& clamp(const _T& minValue, const _T& maxValue);
-        Vec3<_T>& clamp(const Vec3<_T>& minValue, const Vec3<_T>& maxValue);
+        Vec4<_T>& clamp(const _T& minValue, const _T& maxValue);
+        Vec4<_T>& clamp(const Vec4<_T>& minValue, const Vec4<_T>& maxValue);
         
         Vec4<_T>& abs();
         f32 length() const;
@@ -137,21 +137,21 @@ namespace omni::types {
     bool Vec4<_T>::operator!=(const Vec4<_T>& other) const { return !(*this == other); }
 
     template<typename _T>
-    Vec4<_T>& clamp(const _T& minValue, const _T& maxValue) {
-        this->x = clamp(this->x, minValue, maxValue);
-        this->y = clamp(this->y, minValue, maxValue);
-        this->z = clamp(this->z, minValue, maxValue);
-        this->w = clamp(this->w, minValue, maxValue);
+    Vec4<_T>& Vec4<_T>::clamp(const _T& minValue, const _T& maxValue) {
+        this->x = omni::types::clamp(this->x, minValue, maxValue);
+        this->y = omni::types::clamp(this->y, minValue, maxValue);
+        this->z = omni::types::clamp(this->z, minValue, maxValue);
+        this->w = omni::types::clamp(this->w, minValue, maxValue);
 
         return *this;
     }
     
     template<typename _T>
-    Vec4<_T>& clamp(const Vec4<_T>& minValue, const Vec4<_T>& maxValue) {
-        this->x = clamp(this->x, minValue.x, maxValue.x);
-        this->y = clamp(this->y, minValue.y, maxValue.y);
-        this->z = clamp(this->z, minValue.z, maxValue.z);
-        this->w = clamp(this->w, minValue.w, maxValue.w);
+    Vec4<_T>& Vec4<_T>::clamp(const Vec4<_T>& minValue, const Vec4<_T>& maxValue) {
+        this->x = omni::types::clamp(this->x, minValue.x, maxValue.x);
+        this->y = omni::types::clamp(this->y, minValue.y, maxValue.y);
+        this->z = omni::types::clamp(this->z, minValue.z, maxValue.z);
+        this->w = omni::types::clamp(this->w, minValue.w, maxValue.w);
 
         return *this;
     }
