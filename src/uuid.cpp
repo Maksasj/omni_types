@@ -1,43 +1,4 @@
-/**
- * @file 
- * uuid.tpp
- * 
- * @author 
- * Maksim Jaroslavcevas radioboos@gmail.com
- * 
- * @copyright
- * see LICENSE.md file
-*/
-
-#ifndef _OMNI_TYPES_UUID_TYPE_TPP_
-#define _OMNI_TYPES_UUID_TYPE_TPP_
-
-#include "primitive_types.h"
-
-#include <iomanip>
-#include <ostream>
-#include <random>
-#include <cmath>
-
-namespace omni::types {
-    class UUID {
-        private:
-            u64 _data[2];
-        
-            UUID(const u64& data1, const u64& data2);
-
-        public:
-            UUID();
-            
-            bool operator==(const UUID& other) const;
-            bool operator!=(const UUID& other) const;
-
-            std::string to_string() const;
-
-            static UUID gen();
-
-    };
-}
+#include "uuid.h"
 
 namespace omni::types {
     UUID::UUID(const u64& data1, const u64& data2) {
@@ -81,4 +42,3 @@ namespace omni::types {
     }
 }
 
-#endif

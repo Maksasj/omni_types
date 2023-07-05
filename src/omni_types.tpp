@@ -24,7 +24,7 @@
 
 #include "matrix.tpp"
 
-#include "uuid.tpp"
+#include "uuid.h"
 
 #include "vector_types.h"
 
