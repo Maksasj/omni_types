@@ -27,15 +27,15 @@ namespace omni::types {
             UUID(const u64& data1, const u64& data2);
 
         public:
-            friend class UUIDGenerator;
-
             UUID();
+            
+            bool operator==(const UUID& other) const;
+            bool operator!=(const UUID& other) const;
 
             std::string to_string() const;
-    };
 
-    struct UUIDGenerator {
-        static UUID generate_uuid();
+            static UUID gen();
+
     };
 }
 
@@ -47,6 +47,14 @@ namespace omni::types {
 
     UUID::UUID() {
         *this = UUID(0, 0);
+    }
+
+    bool UUID::operator==(const UUID& other) const { 
+        return this->_data[0] == other._data[0] && this->_data[1] == other._data[1]; 
+    }
+
+    bool UUID::operator!=(const UUID& other) const { 
+        return !(*this == other); 
     }
 
     std::string UUID::to_string() const {
@@ -63,7 +71,7 @@ namespace omni::types {
         return tmp;
     }
 
-    UUID UUIDGenerator::generate_uuid() {
+    UUID UUID::gen() {
         static std::random_device rd;
         static std::mt19937_64 gen(rd());
 
