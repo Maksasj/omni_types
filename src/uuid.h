@@ -15,7 +15,7 @@
 #include "primitive_types.h"
 
 #include <iomanip>
-#include <ostream>
+#include <sstream>
 #include <random>
 #include <cmath>
 
