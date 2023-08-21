@@ -18,15 +18,10 @@
 
 #include "primitive_types.h"
 
-#include "vector2_type.tpp"
-#include "vector3_type.tpp"
-#include "vector4_type.tpp"
-
-#include "matrix.tpp"
+#include "vector_types.h"
+#include "matrix_types.h"
 
 #include "uuid.h"
-
-#include "vector_types.h"
 
 #include "interpolation.tpp"
 

@@ -1,6 +1,6 @@
 /**
  * @file 
- * interpolation.tpp
+ * matrix.tpp
  * 
  * @author 
  * Maksim Jaroslavcevas radioboos@gmail.com
@@ -33,54 +33,13 @@ namespace omni::types {
         */
         _T e[_width * _heigth];
 
-        /**
-         * @brief Static method that returns rotation matrix by angle
-         * 
-         * @param rotationAngle rotation angle
-         * @return Matrix<f32, 2, 2> new matrix instance 
-        */
-        static Matrix<f32, 2, 2> get_rotation_matrix(const f32 &rotationAngle) {
-            return {{(f32)cos(rotationAngle), -(f32)sin(rotationAngle), (f32)sin(rotationAngle), (f32)cos(rotationAngle)}};
+        _T& operator()(const size_t& row, const size_t& col) {
+            return e[_width * row + col];
         }
 
-        /**
-         * @brief Static method that returns zero rotation matrix by angle
-         * 
-         * @return Matrix<f32, 2, 2> new matrix instance 
-        */
-        static Matrix<f32, 2, 2> get_zero_rotation_matrix() {
-            return {{ 1, 0, 0, 1 }};
+        const _T& operator()(const size_t& row, const size_t& col) const {
+            return e[_width * row + col];
         }
-
-        /**
-         * @brief Puts string representation of the object to the out stream
-         * 
-         * @param os - reference to the out stream
-         * @param mat - reference to the object instance
-         * 
-         * @return std::ostream& reference to the stream instance 
-        */
-        friend std::ostream& operator<<(std::ostream& os, const Matrix<_T, _width, _heigth>& mat) {
-            for(i32 i = 0; i < _width * _heigth; ++i)
-                os << mat.e[i] << " ";
-
-            return os;
-        } 
-
-        /**
-         * @brief Constructs object from it string representation
-         * 
-         * @param os - reference to the in stream
-         * @param mat - reference to the object instance
-         * 
-         * @return std::istream& reference to the stream instance 
-        */
-        friend std::istream& operator>>(std::istream& os, const Matrix<_T, _width, _heigth>& mat) {
-            for(i32 i = 0; i < _width * _heigth; ++i)
-                os >> mat.e[i];
-
-            return os;
-        } 
 
         /**
          * @brief Method used to get string representation of object instance
@@ -96,6 +55,38 @@ namespace omni::types {
             return ss.str();
         }
     };
+
+    /**
+     * @brief Puts string representation of the object to the out stream
+     * 
+     * @param os - reference to the out stream
+     * @param mat - reference to the object instance
+     * 
+     * @return std::ostream& reference to the stream instance 
+    */
+    template<typename _T, u32 _width, u32 _heigth>
+    std::ostream& operator<<(std::ostream& os, const Matrix<_T, _width, _heigth>& mat) {
+        for(i32 i = 0; i < _width * _heigth; ++i)
+            os << mat.e[i] << " ";
+
+        return os;
+    } 
+
+    /**
+     * @brief Constructs object from it string representation
+     * 
+     * @param os - reference to the in stream
+     * @param mat - reference to the object instance
+     * 
+     * @return std::istream& reference to the stream instance 
+    */
+    template<typename _T, u32 _width, u32 _heigth>
+    std::istream& operator>>(std::istream& os, const Matrix<_T, _width, _heigth>& mat) {
+        for(i32 i = 0; i < _width * _heigth; ++i)
+            os >> mat.e[i];
+
+        return os;
+    }
 }
 
 #endif

@@ -33,43 +33,43 @@ namespace omni::types {
         Vec2() {}
         Vec2(const _T& _x, const _T& _y) : x(_x), y(_y) {}
 
-        static Vec2<_T> splat(const _T& value) {
+        inline static Vec2<_T> splat(const _T& value) {
             return Vec2(value, value);
         }
 
         /** @brief Some overoaded operators */
-        Vec2 operator+(const Vec2& vec) const;
-        Vec2 operator-(const Vec2& vec) const;
-        Vec2 operator*(const Vec2& vec) const;
-        Vec2 operator/(const Vec2& vec) const;
+        inline Vec2 operator+(const Vec2& vec) const;
+        inline Vec2 operator-(const Vec2& vec) const;
+        inline Vec2 operator*(const Vec2& vec) const;
+        inline Vec2 operator/(const Vec2& vec) const;
 
-        Vec2 operator+(const _T& value) const;
-        Vec2 operator-(const _T& value) const;
-        Vec2 operator*(const _T& value) const;
-        Vec2 operator/(const _T& value) const;
+        inline Vec2 operator+(const _T& value) const;
+        inline Vec2 operator-(const _T& value) const;
+        inline Vec2 operator*(const _T& value) const;
+        inline Vec2 operator/(const _T& value) const;
 
         /* Vector x= Vector */
-        Vec2<_T>& operator+=(const Vec2<_T>& other);
-        Vec2<_T>& operator-=(const Vec2<_T>& other);
-        Vec2<_T>& operator*=(const Vec2<_T>& other);
-        Vec2<_T>& operator/=(const Vec2<_T>& other);
+        inline Vec2<_T>& operator+=(const Vec2<_T>& other);
+        inline Vec2<_T>& operator-=(const Vec2<_T>& other);
+        inline Vec2<_T>& operator*=(const Vec2<_T>& other);
+        inline Vec2<_T>& operator/=(const Vec2<_T>& other);
 
         /* Vector x= arbirary values */
-        Vec2<_T>& operator+=(const _T& other);
-        Vec2<_T>& operator-=(const _T& other);
-        Vec2<_T>& operator*=(const _T& other);
-        Vec2<_T>& operator/=(const _T& other);
+        inline Vec2<_T>& operator+=(const _T& other);
+        inline Vec2<_T>& operator-=(const _T& other);
+        inline Vec2<_T>& operator*=(const _T& other);
+        inline Vec2<_T>& operator/=(const _T& other);
 
-        bool operator==(const Vec2<_T>& other) const;
-        bool operator!=(const Vec2<_T>& other) const;
+        inline bool operator==(const Vec2<_T>& other) const;
+        inline bool operator!=(const Vec2<_T>& other) const;
 
-        std::string to_string() const;
+        inline std::string to_string() const;
 
-        Vec2<_T>& clamp(const _T& minValue, const _T& maxValue);
-        Vec2<_T>& clamp(const Vec2<_T>& minValue, const Vec2<_T>& maxValue);
+        inline Vec2<_T>& clamp(const _T& minValue, const _T& maxValue);
+        inline Vec2<_T>& clamp(const Vec2<_T>& minValue, const Vec2<_T>& maxValue);
         
-        Vec2<_T>& abs();
-        _T length() const;
+        inline Vec2<_T>& abs();
+        inline _T length() const;
     };
 }
 

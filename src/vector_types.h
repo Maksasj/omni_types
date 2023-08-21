@@ -30,7 +30,6 @@ namespace omni::types {
     using Vec2i = Vec2<i32>;
     using Vec3i = Vec3<i32>;
     using Vec4i = Vec4<i32>;
-
 }
 
 #ifdef OMNI_TYPES_ENABLE_REFLECTIONS

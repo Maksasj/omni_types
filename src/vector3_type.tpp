@@ -34,45 +34,45 @@ namespace omni::types {
         Vec3() {}
         Vec3(const _T& _x, const _T& _y, const _T& _z) : x(_x), y(_y), z(_z) {}
 
-        static Vec3<_T> splat(const _T& value) {
+        inline static Vec3<_T> splat(const _T& value) {
             return Vec3(value, value, value);
         }
 
         /** @brief Some overoaded operators */
-        Vec3 operator+(const Vec3& vec) const;
-        Vec3 operator-(const Vec3& vec) const;
-        Vec3 operator*(const Vec3& vec) const;
-        Vec3 operator/(const Vec3& vec) const;
+        inline Vec3 operator+(const Vec3& vec) const;
+        inline Vec3 operator-(const Vec3& vec) const;
+        inline Vec3 operator*(const Vec3& vec) const;
+        inline Vec3 operator/(const Vec3& vec) const;
 
-        Vec3 operator+(const _T& value) const;
-        Vec3 operator-(const _T& value) const;
-        Vec3 operator*(const _T& value) const;
-        Vec3 operator/(const _T& value) const;
+        inline Vec3 operator+(const _T& value) const;
+        inline Vec3 operator-(const _T& value) const;
+        inline Vec3 operator*(const _T& value) const;
+        inline Vec3 operator/(const _T& value) const;
 
         /* Vector x= Vector */
-        Vec3<_T>& operator+=(const Vec3<_T>& other);
-        Vec3<_T>& operator-=(const Vec3<_T>& other);
-        Vec3<_T>& operator*=(const Vec3<_T>& other);
-        Vec3<_T>& operator/=(const Vec3<_T>& other);
+        inline Vec3<_T>& operator+=(const Vec3<_T>& other);
+        inline Vec3<_T>& operator-=(const Vec3<_T>& other);
+        inline Vec3<_T>& operator*=(const Vec3<_T>& other);
+        inline Vec3<_T>& operator/=(const Vec3<_T>& other);
         
         /* Vector x= arbirary values */
-        Vec3<_T>& operator+=(const _T& other);
-        Vec3<_T>& operator-=(const _T& other);
-        Vec3<_T>& operator*=(const _T& other);
-        Vec3<_T>& operator/=(const _T& other);
+        inline Vec3<_T>& operator+=(const _T& other);
+        inline Vec3<_T>& operator-=(const _T& other);
+        inline Vec3<_T>& operator*=(const _T& other);
+        inline Vec3<_T>& operator/=(const _T& other);
 
-        operator Vec2<_T>() const;
+        inline operator Vec2<_T>() const;
 
-        bool operator==(const Vec3<_T>& other) const;
-        bool operator!=(const Vec3<_T>& other) const;
+        inline bool operator==(const Vec3<_T>& other) const;
+        inline bool operator!=(const Vec3<_T>& other) const;
 
-        std::string to_string() const;
+        inline std::string to_string() const;
 
-        Vec3<_T>& clamp(const _T& minValue, const _T& maxValue);
-        Vec3<_T>& clamp(const Vec3<_T>& minValue, const Vec3<_T>& maxValue);
+        inline Vec3<_T>& clamp(const _T& minValue, const _T& maxValue);
+        inline Vec3<_T>& clamp(const Vec3<_T>& minValue, const Vec3<_T>& maxValue);
 
-        Vec3<_T>& abs();
-        _T length() const;
+        inline Vec3<_T>& abs();
+        inline _T length() const;
     };
 }
 

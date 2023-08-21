@@ -2,4 +2,4 @@
 
 cmake --build build
 
-build\examples\omni_types_example_2
+build\examples\omni_types_example_3

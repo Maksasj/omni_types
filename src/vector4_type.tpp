@@ -40,38 +40,38 @@ namespace omni::types {
         }
 
         /** @brief Some overoaded operators */
-        Vec4 operator+(const Vec4& vec) const;
-        Vec4 operator-(const Vec4& vec) const;
-        Vec4 operator*(const Vec4& vec) const;
-        Vec4 operator/(const Vec4& vec) const;
+        inline Vec4 operator+(const Vec4& vec) const;
+        inline Vec4 operator-(const Vec4& vec) const;
+        inline Vec4 operator*(const Vec4& vec) const;
+        inline Vec4 operator/(const Vec4& vec) const;
 
-        Vec4 operator+(const _T& value) const;
-        Vec4 operator-(const _T& value) const;
-        Vec4 operator*(const _T& value) const;
-        Vec4 operator/(const _T& value) const;
+        inline Vec4 operator+(const _T& value) const;
+        inline Vec4 operator-(const _T& value) const;
+        inline Vec4 operator*(const _T& value) const;
+        inline Vec4 operator/(const _T& value) const;
 
         /* Vector x= Vector */
-        Vec4<_T>& operator+=(const Vec4<_T>& other);
-        Vec4<_T>& operator-=(const Vec4<_T>& other);
-        Vec4<_T>& operator*=(const Vec4<_T>& other);
-        Vec4<_T>& operator/=(const Vec4<_T>& other);
+        inline Vec4<_T>& operator+=(const Vec4<_T>& other);
+        inline Vec4<_T>& operator-=(const Vec4<_T>& other);
+        inline Vec4<_T>& operator*=(const Vec4<_T>& other);
+        inline Vec4<_T>& operator/=(const Vec4<_T>& other);
 
         /* Vector x= arbirary values */
-        Vec4<_T>& operator+=(const _T& other);
-        Vec4<_T>& operator-=(const _T& other);
-        Vec4<_T>& operator*=(const _T& other);
-        Vec4<_T>& operator/=(const _T& other);
+        inline Vec4<_T>& operator+=(const _T& other);
+        inline Vec4<_T>& operator-=(const _T& other);
+        inline Vec4<_T>& operator*=(const _T& other);
+        inline Vec4<_T>& operator/=(const _T& other);
 
-        bool operator==(const Vec4<_T>& other) const;
-        bool operator!=(const Vec4<_T>& other) const;
+        inline bool operator==(const Vec4<_T>& other) const;
+        inline bool operator!=(const Vec4<_T>& other) const;
 
-        std::string to_string() const;
+        inline std::string to_string() const;
 
-        Vec4<_T>& clamp(const _T& minValue, const _T& maxValue);
-        Vec4<_T>& clamp(const Vec4<_T>& minValue, const Vec4<_T>& maxValue);
+        inline Vec4<_T>& clamp(const _T& minValue, const _T& maxValue);
+        inline Vec4<_T>& clamp(const Vec4<_T>& minValue, const Vec4<_T>& maxValue);
         
-        Vec4<_T>& abs();
-        f32 length() const;
+        inline Vec4<_T>& abs();
+        inline f32 length() const;
     };
 }
 
