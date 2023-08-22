@@ -16,6 +16,7 @@
 #include <sstream>
 #include <cmath>
 
+#include "vector_types.h"
 #include "primitive_types.h"
 
 namespace omni::types {

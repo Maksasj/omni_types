@@ -12,12 +12,64 @@
 #ifndef _OMNI_TYPES_MATRIX_4X4_TPP_
 #define _OMNI_TYPES_MATRIX_4X4_TPP_
 
+#include <cmath>
+
 #include "matrix.tpp"
 
 namespace omni::types {
     template<>
     struct Matrix<f32, 4, 4> {
         f32 e[4 * 4];
+
+        inline static Matrix<f32, 4, 4> splat(const f32& value) {
+            return {{value, value, value, value, value, value, value, value, value, value, value, value, value, value, value, value}};
+        }
+
+        inline static Matrix<f32, 4, 4> identity() {
+            auto matrix = Matrix<f32, 4, 4>::splat(0.0f);
+            
+            matrix.e[0] = 1.0f;
+            matrix.e[5] = 1.0f;
+            matrix.e[10] = 1.0f;
+            matrix.e[15] = 1.0f;
+
+            return matrix;
+        }
+
+        inline static Matrix<f32, 4, 4> translation(const Vec3<f32>& vector) {
+            auto matrix = identity();
+
+            matrix.e[3] = vector.x;
+            matrix.e[7] = vector.y;
+            matrix.e[11] = vector.z;
+
+            return matrix;
+        }
+
+        inline static Matrix<f32, 4, 4> scale(const f32& rate) {
+            auto matrix = identity();
+
+            matrix.e[0] = rate;
+            matrix.e[5] = rate;
+            matrix.e[10] = rate;
+
+            return matrix;
+        }
+
+        inline static Matrix<f32, 4, 4> perspective(const f32& fov, const f32& aspect, const f32& near, const f32& far) {
+            auto matrix = Matrix<f32, 4, 4>::splat(0.0f);
+
+            const f32 tanFovHalf = std::tanf(fov / 2.0f);
+
+            matrix.e[0] = 1.0f / (aspect * tanFovHalf);
+            matrix.e[5] = 1.0f / tanFovHalf;
+            matrix.e[10] = - ((far + near) / (far - near));
+            matrix.e[15] = - ((2.0f * far * near) / (far - near));
+
+            matrix.e[14] = -1.0f;
+
+            return matrix;
+        }
 
         inline f32& operator()(const size_t& row, const size_t& col) {
             return e[4 * row + col];
