@@ -21,6 +21,9 @@
 #include "vector_types.h"
 #include "matrix_types.h"
 
+#include "proper_euler_angles.h"
+#include "trait_bryan_angles.h"
+
 #include "uuid.h"
 
 #include "interpolation.tpp"
