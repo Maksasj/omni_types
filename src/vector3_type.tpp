@@ -73,6 +73,10 @@ namespace omni::types {
 
         inline Vec3<_T>& abs();
         inline _T length() const;
+        
+        inline Vec3<_T> normalize() const;
+        inline Vec3<_T> cross(const Vec3<_T>& other) const;
+        inline _T dot(const Vec3<_T>& other) const;
     };
 }
 
@@ -216,6 +220,26 @@ namespace omni::types {
     template<typename _T>
     _T Vec3<_T>::length() const {
         return sqrtf(this->x * this->x + this->y * this->y + this->z * this->z);
+    }
+
+    template<typename _T>
+    Vec3<_T> Vec3<_T>::normalize() const {
+        const _T l = length();
+        return Vec3<_T>(x / l, y / l, z / l);
+    }
+
+    template<typename _T>
+    Vec3<_T> Vec3<_T>::cross(const Vec3<_T>& other) const {
+        return Vec3<_T>(
+            y * other.z - z * other.y,
+            z * other.x - x * other.z,
+            x * other.y - y * other.x
+        );
+    }
+    
+    template<typename _T>
+    _T Vec3<_T>::dot(const Vec3<_T>& other) const {
+        return x * other.x + y * other.y + z * other.z;
     }
 }
 
