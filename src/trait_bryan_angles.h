@@ -110,14 +110,14 @@ namespace omni::types {
         #ifndef OMNI_TYPES_MATRIX_COLLUM_MAJOR_ORDER
         return {{
             c1*c2,      s1*s3 - c1*c3*c2,   c3*s1 + c1*s2*s3,   0.0f,
-            s2,         2*c3,               -c2*s3,             0.0f,
+            s2,         c2*c3,               -c2*s3,             0.0f,
             -c2*s1,     c1*s3 + c3*s1*s2,   c1*c3 - s1*s2*s3,   0.0f,
             0.0f,       0.0f,               0.0f,               1.0f
         }};
         #else
         return {{
             c1*c2,              s2,         -c2*s1,             0.0f,
-            s1*s3 - c1*c3*c2,   2*c3,       c1*s3 + c3*s1*s2,   0.0f,
+            s1*s3 - c1*c3*c2,   c2*c3,       c1*s3 + c3*s1*s2,   0.0f,
             c3*s1 + c1*s2*s3,   -c2*s3,     c1*c3 - s1*s2*s3,   0.0f,
             0.0f,       0.0f,               0.0f,               1.0f
         }};
