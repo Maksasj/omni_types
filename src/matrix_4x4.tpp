@@ -130,12 +130,21 @@ namespace omni::types {
             - (right + left) / (right - left), - (bottom + top) / (bottom - top), near / (near - far), 1.0f
         }};
         #else
-        return {{
-            2.0f / (right - left), 0.0f, 0.0f, - (right + left) / (right - left),
-            0.0f, 2.0f / (bottom - top), 0.0f, - (bottom + top) / (bottom - top),
-            0.0f, 0.0f, 1.0f / (far - near), near / (near - far),
-            0.0f, 0.0f, 0.0f, 1.0f
-        }};
+            #ifndef OMNI_TYPES_MATRIX4X4_PROJECTION_MATRIX_INVERSE_Y_AXIS
+                return {{
+                    2.0f / (right - left), 0.0f, 0.0f, - (right + left) / (right - left),
+                    0.0f, 2.0f / (bottom - top), 0.0f, - (bottom + top) / (bottom - top),
+                    0.0f, 0.0f, 1.0f / (far - near), near / (near - far),
+                    0.0f, 0.0f, 0.0f, 1.0f
+                }};
+            #else
+                return {{
+                    2.0f / (right - left), 0.0f, 0.0f, - (right + left) / (right - left),
+                    0.0f, -2.0f / (bottom - top), 0.0f, - (bottom + top) / (bottom - top),
+                    0.0f, 0.0f, 1.0f / (far - near), near / (near - far),
+                    0.0f, 0.0f, 0.0f, 1.0f
+                }};
+            #endif
         #endif
     }
 
@@ -150,12 +159,21 @@ namespace omni::types {
             0.0f, 0.0f, 1.0f, 0.0f
         }};
         #else
-        return {{
-            1.f / (aspect * tanHalfFovy), 0.0f, 0.0f, 0.0f,
-            0.0f, 1.f / (tanHalfFovy), 0.0f, 0.0f,
-            0.0f, 0.0f, far / (far - near), 1.0f,
-            0.0f, 0.0f, -(far * near) / (far - near), 0.0f
-        }};
+            #ifndef OMNI_TYPES_MATRIX4X4_PROJECTION_MATRIX_INVERSE_Y_AXIS
+                return {{
+                    1.f / (aspect * tanHalfFovy), 0.0f, 0.0f, 0.0f,
+                    0.0f, 1.f / (tanHalfFovy), 0.0f, 0.0f,
+                    0.0f, 0.0f, far / (far - near), 1.0f,
+                    0.0f, 0.0f, -(far * near) / (far - near), 0.0f
+                }};
+            #else
+                return {{
+                    1.f / (aspect * tanHalfFovy), 0.0f, 0.0f, 0.0f,
+                    0.0f, -1.f / (tanHalfFovy), 0.0f, 0.0f,
+                    0.0f, 0.0f, far / (far - near), 1.0f,
+                    0.0f, 0.0f, -(far * near) / (far - near), 0.0f
+                }};
+            #endif
         #endif
     }
 
