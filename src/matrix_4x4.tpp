@@ -41,9 +41,18 @@ namespace omni::types {
         f32& operator[](const size_t& index);
         const f32& operator[](const size_t& index) const;
 
-        inline void operator*(const f32& value);
-        inline void operator+(const f32& value);
-        inline void operator-(const f32& value);
+        inline Vec4<f32> operator*(const Vec4<f32>& vec) const {
+            return Vec4<f32>(
+                vec.x * e[0] + vec.y * e[4] + vec.z * e[8]  + vec.w * e[12],
+                vec.x * e[1] + vec.y * e[5] + vec.z * e[9]  + vec.w * e[13],
+                vec.x * e[2] + vec.y * e[6] + vec.z * e[10] + vec.w * e[14],
+                vec.x * e[3] + vec.y * e[7] + vec.z * e[11] + vec.w * e[15]
+            );
+        }
+
+        inline Matrix<f32, 4, 4> operator*(const f32& value) const;
+        inline Matrix<f32, 4, 4> operator+(const f32& value) const;
+        inline Matrix<f32, 4, 4> operator-(const f32& value) const;
 
         inline bool operator==(const Matrix<f32, 4, 4>& other) const;
         inline bool operator!=(const Matrix<f32, 4, 4>& other) const;
@@ -208,22 +217,34 @@ namespace omni::types {
         }};
     }
 
-    inline void Matrix<f32, 4, 4>::operator*(const f32& value) {
+    inline Matrix<f32, 4, 4> Matrix<f32, 4, 4>::operator*(const f32& value) const {
+        Matrix<f32, 4, 4> mat = *this;
+
         for(size_t i = 0; i < 16; ++i) {
-            e[i] *= value;
+            mat.e[i] *= value;
         }
+
+        return mat;
     }
 
-    inline void Matrix<f32, 4, 4>::operator+(const f32& value) {
+    inline Matrix<f32, 4, 4> Matrix<f32, 4, 4>::operator+(const f32& value) const {
+        Matrix<f32, 4, 4> mat = *this;
+
         for(size_t i = 0; i < 16; ++i) {
-            e[i] += value;
+            mat.e[i] += value;
         }
+
+        return mat;
     }
 
-    inline void Matrix<f32, 4, 4>::operator-(const f32& value) {
+    inline Matrix<f32, 4, 4> Matrix<f32, 4, 4>::operator-(const f32& value) const {
+        Matrix<f32, 4, 4> mat = *this;
+
         for(size_t i = 0; i < 16; ++i) {
-            e[i] -= value;
+            mat.e[i] -= value;
         }
+
+        return mat;
     }
 
     inline bool Matrix<f32, 4, 4>::operator==(const Matrix<f32, 4, 4>& other) const {
