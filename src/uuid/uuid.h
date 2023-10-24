@@ -12,7 +12,7 @@
 #ifndef _OMNI_TYPES_UUID_TYPE_H_
 #define _OMNI_TYPES_UUID_TYPE_H_
 
-#include "primitive_types.h"
+#include "../primitive_types.h"
 
 #include <iomanip>
 #include <sstream>

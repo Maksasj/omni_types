@@ -12,20 +12,16 @@
 #ifndef _OMNI_TYPES_H_
 #define _OMNI_TYPES_H_
 
-#include <cstdint>
-#include <sstream>
-#include <iostream>
-
 #include "primitive_types.h"
 
-#include "vector_types.h"
-#include "matrix_types.h"
+#include "vector/vector_types.h"
+#include "matrix/matrix_types.h"
 
-#include "proper_euler_angles.h"
-#include "trait_bryan_angles.h"
+#include "utils/proper_euler_angles.h"
+#include "utils/trait_bryan_angles.h"
 
-#include "uuid.h"
+#include "uuid/uuid.h"
 
-#include "interpolation.tpp"
+#include "utils/interpolation.tpp"
 
 #endif
