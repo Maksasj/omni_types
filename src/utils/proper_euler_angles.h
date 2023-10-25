@@ -15,7 +15,7 @@
 #include "../matrix/matrix_4x4.tpp"
 
 namespace omni::types {
-    static Matrix<f32, 4, 4> proper_euler_angle_xzx(const Vec3f& rotation) {
+    static inline Matrix<f32, 4, 4> proper_euler_angle_xzx(const Vec3f& rotation) {
         const f32 c3 = std::cos(rotation.z);
         const f32 s3 = std::sin(rotation.z);
         const f32 c2 = std::cos(rotation.x);
@@ -31,7 +31,7 @@ namespace omni::types {
         }};
     }
 
-    static Matrix<f32, 4, 4> proper_euler_angle_xyx(const Vec3f& rotation) {
+    static inline Matrix<f32, 4, 4> proper_euler_angle_xyx(const Vec3f& rotation) {
         const f32 c3 = std::cos(rotation.z);
         const f32 s3 = std::sin(rotation.z);
         const f32 c2 = std::cos(rotation.x);
@@ -47,7 +47,7 @@ namespace omni::types {
         }};
     }
 
-    static Matrix<f32, 4, 4> proper_euler_angle_yxy(const Vec3f& rotation) {
+    static inline Matrix<f32, 4, 4> proper_euler_angle_yxy(const Vec3f& rotation) {
         const f32 c3 = std::cos(rotation.z);
         const f32 s3 = std::sin(rotation.z);
         const f32 c2 = std::cos(rotation.x);
@@ -63,7 +63,7 @@ namespace omni::types {
         }};
     }
 
-    static Matrix<f32, 4, 4> proper_euler_angle_yzy(const Vec3f& rotation) {
+    static inline Matrix<f32, 4, 4> proper_euler_angle_yzy(const Vec3f& rotation) {
         const f32 c3 = std::cos(rotation.z);
         const f32 s3 = std::sin(rotation.z);
         const f32 c2 = std::cos(rotation.x);
@@ -79,7 +79,7 @@ namespace omni::types {
         }};
     }
 
-    static Matrix<f32, 4, 4> proper_euler_angle_zyz(const Vec3f& rotation) {
+    static inline Matrix<f32, 4, 4> proper_euler_angle_zyz(const Vec3f& rotation) {
         const f32 c3 = std::cos(rotation.z);
         const f32 s3 = std::sin(rotation.z);
         const f32 c2 = std::cos(rotation.x);
@@ -95,7 +95,7 @@ namespace omni::types {
         }};
     }
 
-    static Matrix<f32, 4, 4> proper_euler_angle_zxz(const Vec3f& rotation) {
+    static inline Matrix<f32, 4, 4> proper_euler_angle_zxz(const Vec3f& rotation) {
         const f32 c3 = std::cos(rotation.z);
         const f32 s3 = std::sin(rotation.z);
         const f32 c2 = std::cos(rotation.x);
