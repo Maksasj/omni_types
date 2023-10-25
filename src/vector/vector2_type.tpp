@@ -15,6 +15,7 @@
 #include "../primitive_types.h"
 #include "../utils/interpolation.tpp"
 
+#include <sstream>
 #include <ostream>
 #include <cmath>
 
