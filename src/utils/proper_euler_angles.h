@@ -15,17 +15,17 @@
 #include "../matrix/matrix_4x4.tpp"
 
 namespace omni::types {
-    static inline Matrix<f32, 4, 4> proper_euler_angle_xzx(const Vec3f& rotation);
+    static Matrix<f32, 4, 4> proper_euler_angle_xzx(const Vec3f& rotation);
 
-    static inline Matrix<f32, 4, 4> proper_euler_angle_xyx(const Vec3f& rotation);
+    static Matrix<f32, 4, 4> proper_euler_angle_xyx(const Vec3f& rotation);
 
-    static inline Matrix<f32, 4, 4> proper_euler_angle_yxy(const Vec3f& rotation);
+    static Matrix<f32, 4, 4> proper_euler_angle_yxy(const Vec3f& rotation);
 
-    static inline Matrix<f32, 4, 4> proper_euler_angle_yzy(const Vec3f& rotation);
+    static Matrix<f32, 4, 4> proper_euler_angle_yzy(const Vec3f& rotation);
 
-    static inline Matrix<f32, 4, 4> proper_euler_angle_zyz(const Vec3f& rotation);
+    static Matrix<f32, 4, 4> proper_euler_angle_zyz(const Vec3f& rotation);
 
-    static inline Matrix<f32, 4, 4> proper_euler_angle_zxz(const Vec3f& rotation);
+    static Matrix<f32, 4, 4> proper_euler_angle_zxz(const Vec3f& rotation);
 }
 
 #endif
