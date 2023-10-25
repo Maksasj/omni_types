@@ -1,5 +1,7 @@
 #include "uuid.h"
 
+#include <sstream>
+
 namespace omni::types {
     UUID::UUID(const u64& data1, const u64& data2) {
         _data[0] = data1;
