@@ -97,5 +97,3 @@ namespace omni::types {
         }};
     }
 }
-
-#endif
