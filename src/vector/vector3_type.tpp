@@ -34,6 +34,13 @@ namespace omni::types {
             return Vec3(value, value, value);
         }
 
+        static const Vec3f left;
+        static const Vec3f right;
+        static const Vec3f up;
+        static const Vec3f down;
+        static const Vec3f back;
+        static const Vec3f forward;
+
         /** @brief Some overoaded operators */
         inline Vec3 operator+(const Vec3& vec) const;
         inline Vec3 operator-(const Vec3& vec) const;
@@ -77,6 +84,13 @@ namespace omni::types {
 }
 
 namespace omni::types {
+    const Vec3f left    = { -1.0f, 0.0f, 0.0f };
+    const Vec3f right   = { 1.0f, 0.0f, 0.0f };
+    const Vec3f up      = { 0.0f, 1.0f, 0.0f };
+    const Vec3f down    = { 0.0f, -1.0f, 0.0f };
+    const Vec3f back    = { 0.0f, 0.0f, -1.0f };
+    const Vec3f forward = { 0.0f, 0.0f, 1.0f };
+
     template<typename _T>
     Vec3<_T> Vec3<_T>::operator+(const Vec3& vec) const { return Vec3(this->x + vec.x, this->y + vec.y, z + vec.z); }
     

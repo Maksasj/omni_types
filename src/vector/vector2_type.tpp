@@ -38,6 +38,11 @@ namespace omni::types {
             return Vec2(value, value);
         }
 
+        static const Vec2f left;
+        static const Vec2f right;
+        static const Vec2f up;
+        static const Vec2f down;
+
         /** @brief Some overoaded operators */
         inline Vec2 operator+(const Vec2& vec) const;
         inline Vec2 operator-(const Vec2& vec) const;
@@ -75,6 +80,11 @@ namespace omni::types {
 }
 
 namespace omni::types {
+    const Vec2f Vec2f::left  = { -1.0f, 0.0f };
+    const Vec2f Vec2f::right = { 1.0f, 0.0f };
+    const Vec2f Vec2f::up    = { 0.0f, 1.0f };
+    const Vec2f Vec2f::down  = { 0.0f, -1.0f };
+
     template<typename _T>
     Vec2<_T> Vec2<_T>::operator+(const Vec2& vec) const { return Vec2(x + vec.x, y + vec.y); }
 
