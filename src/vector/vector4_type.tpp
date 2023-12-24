@@ -28,8 +28,8 @@ namespace omni::types {
         _T z;
         _T w;
 
-        Vec4() {}
-        Vec4(const _T& _x, const _T& _y, const _T& _z, const _T& _w) : x(_x), y(_y), z(_z), w(_w) {}
+        constexpr Vec4() {}
+        constexpr Vec4(const _T& _x, const _T& _y, const _T& _z, const _T& _w) : x(_x), y(_y), z(_z), w(_w) {}
 
         static Vec4<_T> splat(const _T& value) {
             return Vec4(value, value, value, value);

@@ -27,19 +27,19 @@ namespace omni::types {
         _T y;
         _T z;
 
-        Vec3() {}
-        Vec3(const _T& _x, const _T& _y, const _T& _z) : x(_x), y(_y), z(_z) {}
+        constexpr Vec3() {}
+        constexpr Vec3(const _T& _x, const _T& _y, const _T& _z) : x(_x), y(_y), z(_z) {}
+
+        static const Vec3<float> left;
+        static const Vec3<float> right;
+        static const Vec3<float> up;
+        static const Vec3<float> down;
+        static const Vec3<float> back;
+        static const Vec3<float> forward;
 
         inline static Vec3<_T> splat(const _T& value) {
             return Vec3(value, value, value);
         }
-
-        static const Vec3f left;
-        static const Vec3f right;
-        static const Vec3f up;
-        static const Vec3f down;
-        static const Vec3f back;
-        static const Vec3f forward;
 
         /** @brief Some overoaded operators */
         inline Vec3 operator+(const Vec3& vec) const;
@@ -84,12 +84,23 @@ namespace omni::types {
 }
 
 namespace omni::types {
-    const Vec3f left    = { -1.0f, 0.0f, 0.0f };
-    const Vec3f right   = { 1.0f, 0.0f, 0.0f };
-    const Vec3f up      = { 0.0f, 1.0f, 0.0f };
-    const Vec3f down    = { 0.0f, -1.0f, 0.0f };
-    const Vec3f back    = { 0.0f, 0.0f, -1.0f };
-    const Vec3f forward = { 0.0f, 0.0f, 1.0f };
+    template<typename _T>
+    const Vec3<float> Vec3<_T>::left{ -1.0f, 0.0f, 0.0f };
+
+    template<typename _T>
+    const Vec3<float> Vec3<_T>::right{ 1.0f, 0.0f, 0.0f };
+
+    template<typename _T>
+    const Vec3<float> Vec3<_T>::up{ 0.0f, 1.0f, 0.0f };
+
+    template<typename _T>
+    const Vec3<float> Vec3<_T>::down{ 0.0f, -1.0f, 0.0f };
+
+    template<typename _T>
+    const Vec3<float> Vec3<_T>::back{ 0.0f, 0.0f, -1.0f };
+
+    template<typename _T>
+    const Vec3<float> Vec3<_T>::forward{ 0.0f, 0.0f, 1.0f };
 
     template<typename _T>
     Vec3<_T> Vec3<_T>::operator+(const Vec3& vec) const { return Vec3(this->x + vec.x, this->y + vec.y, z + vec.z); }

@@ -31,17 +31,17 @@ namespace omni::types {
         _T x;
         _T y;
 
-        Vec2() {}
-        Vec2(const _T& _x, const _T& _y) : x(_x), y(_y) {}
+        constexpr Vec2() {}
+        constexpr Vec2(const _T& _x, const _T& _y) : x(_x), y(_y) {}
+
+        static const Vec2<float> left;
+        static const Vec2<float> right;
+        static const Vec2<float> up;
+        static const Vec2<float> down;
 
         inline static Vec2<_T> splat(const _T& value) {
             return Vec2(value, value);
         }
-
-        static const Vec2f left;
-        static const Vec2f right;
-        static const Vec2f up;
-        static const Vec2f down;
 
         /** @brief Some overoaded operators */
         inline Vec2 operator+(const Vec2& vec) const;
@@ -80,10 +80,17 @@ namespace omni::types {
 }
 
 namespace omni::types {
-    const Vec2f Vec2f::left  = { -1.0f, 0.0f };
-    const Vec2f Vec2f::right = { 1.0f, 0.0f };
-    const Vec2f Vec2f::up    = { 0.0f, 1.0f };
-    const Vec2f Vec2f::down  = { 0.0f, -1.0f };
+    template<typename _T>
+    const Vec2<float> Vec2<_T>::left{ -1.0f, 0.0f };
+
+    template<typename _T>
+    const Vec2<float> Vec2<_T>::right{ 1.0f, 0.0f };
+
+    template<typename _T>
+    const Vec2<float> Vec2<_T>::up{ 0.0f, 1.0f };
+
+    template<typename _T>
+    const Vec2<float> Vec2<_T>::down{ 0.0f, -1.0f };
 
     template<typename _T>
     Vec2<_T> Vec2<_T>::operator+(const Vec2& vec) const { return Vec2(x + vec.x, y + vec.y); }
