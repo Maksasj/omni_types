@@ -31,6 +31,8 @@ namespace omni::types {
         constexpr Vec3(const _T& _x, const _T& _y, const _T& _z) : x(_x), y(_y), z(_z) {}
 
         static const Vec3<float> zero;
+        static const Vec3<float> one;
+
         static const Vec3<float> left;
         static const Vec3<float> right;
         static const Vec3<float> up;
@@ -87,6 +89,9 @@ namespace omni::types {
 namespace omni::types {
     template<typename _T>
     const Vec3<float> Vec3<_T>::zero { 0.0f, 0.0f, 0.0f };
+
+    template<typename _T>
+    const Vec3<float> Vec3<_T>::one { 1.0f, 1.0f, 1.0f };
 
     template<typename _T>
     const Vec3<float> Vec3<_T>::left{ -1.0f, 0.0f, 0.0f };
