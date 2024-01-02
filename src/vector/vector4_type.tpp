@@ -35,6 +35,8 @@ namespace omni::types {
             return Vec4(value, value, value, value);
         }
 
+        static const Vec4<float> zero;
+
         /** @brief Some overoaded operators */
         inline Vec4 operator+(const Vec4& vec) const;
         inline Vec4 operator-(const Vec4& vec) const;
@@ -72,6 +74,9 @@ namespace omni::types {
 }
 
 namespace omni::types {
+    template<typename _T>
+    const Vec4<float> Vec4<_T>::zero { 0.0f, 0.0f, 0.0f, 0.0f };
+
     /**
      * @brief Some overoaded operators
     */
