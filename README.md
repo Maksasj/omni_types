@@ -1,6 +1,19 @@
-# omni_types
+# omni::types
 
-omni_types - C++ basic algebraic/utils type library.
+omni::types - C++ basic algebraic/utils type library.
+
+## Features
+- Algebraic vectors
+    - 2D vector
+    - 3D vector
+    - 4D vector
+- UUID type
+- Color types
+    - Color formats
+- Algebraic matrix
+    - Euler rotation matrices
+    - Trait-Bryan rotation matrices
+- Interpolation functions
 
 ## Build
 ```bash
