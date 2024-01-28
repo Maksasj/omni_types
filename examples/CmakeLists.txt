@@ -14,3 +14,6 @@ target_link_libraries(omni_types_example_3 omni_types)
 
 add_executable(omni_types_example_4 example_4.cpp)
 target_link_libraries(omni_types_example_4 omni_types)
+
+add_executable(omni_types_example_5 example_5.cpp)
+target_link_libraries(omni_types_example_5 omni_types)

@@ -17,11 +17,12 @@
 #include "vector/vector_types.h"
 #include "matrix/matrix_types.h"
 
-#include "utils/proper_euler_angles.h"
-#include "utils/trait_bryan_angles.h"
-
 #include "uuid/uuid.h"
 
+#include "color/colors.h"
+
+#include "utils/proper_euler_angles.h"
+#include "utils/trait_bryan_angles.h"
 #include "utils/interpolation.tpp"
 
 #endif

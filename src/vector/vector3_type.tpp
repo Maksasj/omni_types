@@ -88,10 +88,10 @@ namespace omni::types {
 
 namespace omni::types {
     template<typename _T>
-    const Vec3<float> Vec3<_T>::zero { 0.0f, 0.0f, 0.0f };
+    const Vec3<float> Vec3<_T>::zero{ 0.0f, 0.0f, 0.0f };
 
     template<typename _T>
-    const Vec3<float> Vec3<_T>::one { 1.0f, 1.0f, 1.0f };
+    const Vec3<float> Vec3<_T>::one{ 1.0f, 1.0f, 1.0f };
 
     template<typename _T>
     const Vec3<float> Vec3<_T>::left{ -1.0f, 0.0f, 0.0f };
