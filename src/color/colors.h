@@ -22,7 +22,7 @@
 namespace omni::types {
     using ColorRGB24 = Color<RGB24>;
     using ColorRGBA32 = Color<RGBA32>;
-    using ColorRGBA32f = Color<RGBA32>;
+    using ColorRGBA32f = Color<RGBA32f>;
 }
 
 #endif
