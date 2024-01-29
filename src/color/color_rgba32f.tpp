@@ -9,8 +9,8 @@
  * see LICENSE.md file
 */
 
-#ifndef _OMNI_TYPES_COLOR_R8G8B8A8_FLOAT_TPP_
-#define _OMNI_TYPES_COLOR_R8G8B8A8_FLOAT_TPP_
+#ifndef _OMNI_TYPES_COLOR_R32G32B32A32_FLOAT_TPP_
+#define _OMNI_TYPES_COLOR_R32G32B32A32_FLOAT_TPP_
 
 #include "color.tpp"
 #include "color_format.h"
