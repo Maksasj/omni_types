@@ -17,5 +17,12 @@
 
 #include "color_r8g8b8.tpp"
 #include "color_r8g8b8a8.tpp"
+#include "color_rgba32f.tpp"
+
+namespace omni::types {
+    using ColorRGB24 = Color<RGB24>;
+    using ColorRGBA32 = Color<RGBA32>;
+    using ColorRGBA32f = Color<RGBA32>;
+}
 
 #endif

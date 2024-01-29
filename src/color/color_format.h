@@ -14,11 +14,14 @@
 
 namespace omni::types {
     enum ColorFormat {
-        R8G8B8,
-        R8G8B8A8,
+        R8G8B8_UINT,
+        R8G8B8A8_UINT,
 
-        RGB24 = R8G8B8,
-        RGBA32 = R8G8B8A8
+        R32G32B32A32_FLOAT,
+
+        RGB24 = R8G8B8_UINT,
+        RGBA32 = R8G8B8A8_UINT,
+        RGBA32f = R32G32B32A32_FLOAT
     };
 }
 
