@@ -28,6 +28,9 @@ namespace omni::types {
         static const Color<R32G32B32A32_FLOAT> YELLOW;
         static const Color<R32G32B32A32_FLOAT> MAGENTA;
         static const Color<R32G32B32A32_FLOAT> CYAN;
+
+        template<ColorFormat _DesiredFormat>
+        Color<_DesiredFormat> to() const;
     };
 }
 

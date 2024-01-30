@@ -28,6 +28,9 @@ namespace omni::types {
         static const Color<R8G8B8_UINT> YELLOW;
         static const Color<R8G8B8_UINT> MAGENTA;
         static const Color<R8G8B8_UINT> CYAN;
+
+        template<ColorFormat _DesiredFormat>
+        Color<_DesiredFormat> to() const;
     };
 }
 
