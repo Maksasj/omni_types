@@ -36,6 +36,10 @@ namespace omni::types {
             return R8G8B8A8_UINT;
         }
 
+        static inline constexpr size_t get_channels() {
+            return 4;
+        }
+
         #ifdef OMNI_GLAD_INTEGRATION
         static inline constexpr GLuint get_gl_format() {
             return GL_RGBA;
