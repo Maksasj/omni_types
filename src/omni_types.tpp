@@ -9,8 +9,8 @@
  * see LICENSE.md file
 */
 
-#ifndef _OMNI_TYPES_H_
-#define _OMNI_TYPES_H_
+#ifndef _OMNI_TYPES_TPP_
+#define _OMNI_TYPES_TPP_
 
 #include "primitive_types.h"
 

@@ -31,6 +31,20 @@ namespace omni::types {
 
         template<class _DesiredColor>
         _DesiredColor to() const;
+
+        static inline constexpr ColorFormat get_format() {
+            return R32G32B32A32_FLOAT;
+        }
+
+        #ifdef OMNI_GLAD_INTEGRATION
+        static inline constexpr GLuint get_gl_format() {
+            return GL_RGBA;
+        }
+
+        static inline constexpr GLuint get_gl_type() {
+            return GL_FLOAT;
+        }
+        #endif
     };
 }
 

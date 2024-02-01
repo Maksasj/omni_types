@@ -16,6 +16,10 @@
 
 #include "color_format.h"
 
+#ifdef OMNI_GLAD_INTEGRATION
+    #include <glad/glad.h>
+#endif
+
 namespace omni::types {
     template<ColorFormat _Format>
     struct Color {
