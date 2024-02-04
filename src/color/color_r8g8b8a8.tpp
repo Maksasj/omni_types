@@ -40,6 +40,14 @@ namespace omni::types {
             return 4;
         }
 
+        static inline constexpr Color<R8G8B8A8_UINT> splat(const u8& v) {
+            return {v, v, v, 255};
+        }
+
+        static inline constexpr Color<R8G8B8A8_UINT> monochrome(const u8& v) {
+            return splat(v);
+        }
+
         #ifdef OMNI_GLAD_INTEGRATION
         static inline constexpr GLuint get_gl_format() {
             return GL_RGBA;
