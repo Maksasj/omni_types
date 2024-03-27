@@ -13,6 +13,7 @@
 #define _OMNI_TYPES_PRIMITIVE_TYPES_H_
 
 #include <cstdint>
+#include <stdlib.h>
 
 namespace omni::types {
     using u8 =  uint8_t;
