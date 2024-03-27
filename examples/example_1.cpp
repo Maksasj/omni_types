@@ -1,6 +1,5 @@
 #include <iostream>
 
-#define OMNI_TYPES_ENABLE_REFLECTIONS
 #include "omni_types.tpp"
 
 int main() {
