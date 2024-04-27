@@ -19,6 +19,8 @@
 
 #include "uuid/uuid.h"
 
+#include "complex/quaternion.tpp"
+
 #include "color/colors.h"
 
 #include "utils/proper_euler_angles.h"
