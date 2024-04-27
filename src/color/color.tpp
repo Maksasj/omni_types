@@ -14,6 +14,7 @@
 
 #include <stdlib.h>
 #include "../primitive_types.h"
+#include "../vector/vector_types.h"
 
 #ifndef OMNI_TYPES_RAND
     #define OMNI_TYPES_RAND rand()

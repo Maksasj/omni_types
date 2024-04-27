@@ -29,6 +29,8 @@ namespace omni::types {
         static const Color<R8G8B8_UINT> MAGENTA;
         static const Color<R8G8B8_UINT> CYAN;
 
+        operator Vec3<u8>() const { return { r, g, b }; }
+
         template<class _DesiredColor>
         _DesiredColor to() const;
 

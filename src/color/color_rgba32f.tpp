@@ -29,6 +29,8 @@ namespace omni::types {
         static const Color<R32G32B32A32_FLOAT> MAGENTA;
         static const Color<R32G32B32A32_FLOAT> CYAN;
 
+        operator Vec4<f32>() const { return { r, g, b, a }; }
+
         template<class _DesiredColor>
         _DesiredColor to() const;
 

@@ -13,6 +13,9 @@ int main() {
     {
         ColorRGBA32f color = ColorRGBA32f::CYAN;
         std::ignore = color;
+
+        Vec4f vec = color;
+        std::ignore = vec;
     }
 
     return 0;
