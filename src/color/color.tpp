@@ -12,7 +12,12 @@
 #ifndef _OMNI_TYPES_COLOR_TYPE_H_
 #define _OMNI_TYPES_COLOR_TYPE_H_
 
+#include <stdlib.h>
 #include "../primitive_types.h"
+
+#ifndef OMNI_TYPES_RAND
+    #define OMNI_TYPES_RAND rand()
+#endif
 
 #include "color_format.h"
 

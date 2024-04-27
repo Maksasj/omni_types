@@ -57,6 +57,15 @@ namespace omni::types {
             return GL_UNSIGNED_BYTE;
         }
         #endif
+
+        static inline Color<R8G8B8A8_UINT> random() {
+            return { 
+                static_cast<u8>(OMNI_TYPES_RAND % 255), 
+                static_cast<u8>(OMNI_TYPES_RAND % 255), 
+                static_cast<u8>(OMNI_TYPES_RAND % 255),
+                255 
+            };
+        }
     };
 }
 

@@ -57,6 +57,15 @@ namespace omni::types {
             return GL_FLOAT;
         }
         #endif
+
+        static inline Color<R32G32B32A32_FLOAT> random() {
+            return { 
+                static_cast<f32>(static_cast<u8>(OMNI_TYPES_RAND % 255)) / 255.0f, 
+                static_cast<f32>(static_cast<u8>(OMNI_TYPES_RAND % 255)) / 255.0f, 
+                static_cast<f32>(static_cast<u8>(OMNI_TYPES_RAND % 255)) / 255.0f,
+                1.0f
+            };
+        }
     };
 }
 
